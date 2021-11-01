@@ -13,7 +13,7 @@ public class BasePage {
         driver.get(url);
     }
 
-    public String getCurrentUrlOfPage() {
+    public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
 }
