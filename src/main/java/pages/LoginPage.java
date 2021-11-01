@@ -20,7 +20,7 @@ public class LoginPage extends BasePage{
         driver.findElement(LOGIN_BUTTON).click();
     }
 
-    public String incorrectLoginNotification(){
+    public String getIncorrectLoginErrorMessageText(){
       return  driver.findElement(INCORRECT_LOGIN_BUTTON_MESSAGE).getText();
     }
 }
