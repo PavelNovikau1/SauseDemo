@@ -19,7 +19,7 @@ public class HeaderPage extends BasePage{
        return driver.findElement(POP_UP_MENU_ITEMS).isDisplayed();
     }
 
-    public void logOut(){
+    public void clickLogOutButton(){
         driver.findElement(LOG_OUT).click();
     }
 }
