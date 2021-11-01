@@ -15,7 +15,7 @@ public class HeaderPage extends BasePage{
         driver.findElement(OPEN_POP_UP_MENU).click();
     }
 
-    public boolean isDisplayedPopUpMenu(){
+    public boolean isPopUpMenuDisplayed(){
        return driver.findElement(POP_UP_MENU_ITEMS).isDisplayed();
     }
 
