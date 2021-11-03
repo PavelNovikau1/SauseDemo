@@ -12,7 +12,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void loginWithEmptysUsernameAndPasswordFieldTest() {
+    public void loginWithEmptyUsernameAndPasswordFieldTest() {
         loginPage.openPage("https://www.saucedemo.com/");
         loginPage.login("", "");
         Assert.assertEquals(loginPage.getIncorrectLoginErrorMessageText(), "Epic sadface: Username is required");

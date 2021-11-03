@@ -14,6 +14,6 @@ public class CheckOutTests extends HeaderTests {
         cartPage.checkOutButtonClick();
         checkOutPage.fillAllFields("John", "Smith", "34234");
         checkOutPage.clickContinueButton();
-        Assert.assertEquals(checkOutStepTwoPage.getCurrentUrlOfPage(), "https://www.saucedemo.com/checkout-step-two.html");
+        Assert.assertEquals(checkOutStepTwoPage.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-two.html");
     }
 }
