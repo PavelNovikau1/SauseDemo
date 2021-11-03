@@ -29,7 +29,7 @@ public class CheckOutCompleteTests extends CheckOutStepTwoTests {
         checkOutPage.clickContinueButton();
         checkOutStepTwoPage.clickOnFinishButton();
         checkOutCompletePage.backHomeButtonClick();
-        Assert.assertEquals(productsPage.getCurrentUrlOfPage(), "https://www.saucedemo.com/inventory.html");
+        Assert.assertEquals(productsPage.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 }
 
