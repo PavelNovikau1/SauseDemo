@@ -7,18 +7,18 @@ public class HeaderTests extends BaseTest {
 
     @Test
     public void popUpMenuIsOpened() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
-        headerPage.openPopUpMenu();
+        loginPage.openPage()
+                 .login("standard_user", "secret_sauce")
+                 .openPopUpMenu();
         Assert.assertTrue(headerPage.isPopUpMenuDisplayed());
     }
 
     @Test
     public void logOutFromAccountTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
-        headerPage.openPopUpMenu();
-        headerPage.clickLogOutButton();
-        Assert.assertEquals(loginPage.getCurrentUrl(), "https://www.saucedemo.com/");
+        loginPage.openPage()
+                 .login("standard_user", "secret_sauce")
+                 .openPopUpMenu()
+                 .clickLogOutButton();
+        Assert.assertEquals(loginPage.getUrl(), "https://www.saucedemo.com/");
     }
 }

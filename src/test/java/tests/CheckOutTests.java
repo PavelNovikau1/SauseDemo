@@ -7,13 +7,13 @@ public class CheckOutTests extends HeaderTests {
 
     @Test
     public void fillingInformationFieldsWithValidValuesTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
-        productsPage.openPage("https://www.saucedemo.com/cart.html");
-        cartPage.checkOutButtonClick();
-        checkOutPage.fillAllFields("John", "Smith", "34234");
-        checkOutPage.clickContinueButton();
-        Assert.assertEquals(checkOutStepTwoPage.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-two.html");
+        loginPage.openPage()
+                 .login("standard_user", "secret_sauce")
+                 .addProductToCart("Sauce Labs Bolt T-Shirt")
+                 .openPage("https://www.saucedemo.com/cart.html");
+        cartPage.checkOutButtonClick()
+                 .fillAllFields("John", "Smith", "34234")
+                 .clickContinueButton();
+        Assert.assertEquals(checkOutStepTwoPage.getUrl(), "https://www.saucedemo.com/checkout-step-two.html");
     }
 }

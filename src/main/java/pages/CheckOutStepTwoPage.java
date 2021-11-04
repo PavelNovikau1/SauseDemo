@@ -10,7 +10,8 @@ public class CheckOutStepTwoPage extends CheckOutPage{
 
     private static final By FINISH_BUTTON = By.xpath("//*[@id='finish']");
 
-    public void clickOnFinishButton(){
+    public CheckOutCompletePage clickOnFinishButton(){
         driver.findElement(FINISH_BUTTON).click();
+        return  new CheckOutCompletePage(driver);
     }
 }

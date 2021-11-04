@@ -13,7 +13,6 @@ public class CheckOutCompletePage extends CheckOutStepTwoPage {
 
     public String getCheckOutCompleteInformation() {
         return driver.findElement(COMPLETE_ALERT_OF_SUCCESS_ORDER).getText();
-
     }
 
     public void backHomeButtonClick() {
