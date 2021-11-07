@@ -9,9 +9,9 @@ public class CheckOutCompleteTests extends CheckOutStepTwoTests {
     public  void verificationOfSuccessfulPurchaseTest() {
         loginPage.openPage()
                  .login("standard_user", "secret_sauce")
-                 .addProductToCart("Sauce Labs Bolt T-Shirt")
-                 .openPage("https://www.saucedemo.com/cart.html");
-        cartPage.checkOutButtonClick()
+                 .addProductToCart("Sauce Labs Bolt T-Shirt");
+        cartPage.openCardPage()
+                 .checkOutButtonClick()
                  .fillAllFields("John", "Smith", "34234")
                  .clickContinueButton()
                  .clickOnFinishButton();
@@ -22,9 +22,9 @@ public class CheckOutCompleteTests extends CheckOutStepTwoTests {
     public  void backToProductPageAfterSuccessfulPurchaseTest() {
         loginPage.openPage()
                  .login("standard_user", "secret_sauce")
-                 .addProductToCart("Sauce Labs Bolt T-Shirt")
-                 .openPage("https://www.saucedemo.com/cart.html");
-        cartPage.checkOutButtonClick()
+                 .addProductToCart("Sauce Labs Bolt T-Shirt");
+        cartPage.openCardPage()
+                 .checkOutButtonClick()
                  .fillAllFields("John", "Smith", "34234")
                  .clickContinueButton()
                  .clickOnFinishButton()

@@ -22,9 +22,10 @@ public class CartPage extends HeaderPage {
         return new CheckOutPage(driver);
     }
 
-    public CartPage openPage() {
+    public CartPage openCardPage() {
         openPage(BASE_URL + CART_URL);
         return this;
     }
+
 }
 
