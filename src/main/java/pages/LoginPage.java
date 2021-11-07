@@ -15,23 +15,25 @@ public class LoginPage extends BasePage{
     private static final By INCORRECT_LOGIN_BUTTON_MESSAGE = By.xpath("//*[@data-test='error']");
     private static final By BOT_LOGO = By.xpath("//*[@class='bot_column']");
 
-    public void login(String username, String password) {
+    public ProductsPage login(String username, String password) {
+        waitForElementLocated(USERNAME_INPUT, 10);
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+        return new ProductsPage(driver);
     }
 
     public String getIncorrectLoginErrorMessageText(){
       return  driver.findElement(INCORRECT_LOGIN_BUTTON_MESSAGE).getText();
     }
 
-    public void waitForPageOpenedExample() {
+    public void waitForPageOpened() {
         waitForElementLocated(BOT_LOGO, 10);
     }
 
-    public void typeTextInFrames() {
-        driver.switchTo().frame(driver.findElement(By.id("mce_0_ifr")));
-        driver.findElement(By.id("tinymce")).sendKeys("asdsd");
-        driver.switchTo().defaultContent();
+    public LoginPage openPage() {
+        openPage(BASE_URL);
+        waitForPageOpened();
+        return this;
     }
 }

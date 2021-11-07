@@ -13,13 +13,16 @@ public class CheckOutPage extends HeaderPage {
     private static final By ZIP_POSTAL_CODE_FIELD = By.xpath("//*[@id='postal-code']");
     private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
 
-    public void clickContinueButton() {
+    public CheckOutStepTwoPage clickContinueButton() {
         driver.findElement(CONTINUE_BUTTON).click();
+        return new CheckOutStepTwoPage(driver);
     }
 
-    public void fillAllFields(String firstName, String lastName, String zipPostalCode) {
+    public CheckOutPage fillAllFields(String firstName, String lastName, String zipPostalCode) {
         driver.findElement(FIRST_NAME_FIELD).sendKeys(firstName);
         driver.findElement(LAST_NAME_FIELD).sendKeys(lastName);
         driver.findElement(ZIP_POSTAL_CODE_FIELD).sendKeys(zipPostalCode);
+        return this;
     }
+
 }

@@ -18,7 +18,7 @@ public class BaseTest {
     CheckOutPage checkOutPage;
     CheckOutStepTwoPage checkOutStepTwoPage;
     CheckOutCompletePage checkOutCompletePage;
-
+    LoginPageFactory loginPageFactory;
     @BeforeMethod
     public void initTest() {
         WebDriverManager.chromedriver().setup();
@@ -32,6 +32,7 @@ public class BaseTest {
         checkOutPage = new CheckOutPage(driver);
         checkOutStepTwoPage = new CheckOutStepTwoPage(driver);
         checkOutCompletePage = new CheckOutCompletePage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
     }
 
     @AfterMethod

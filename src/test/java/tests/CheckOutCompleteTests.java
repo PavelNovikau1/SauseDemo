@@ -7,29 +7,29 @@ public class CheckOutCompleteTests extends CheckOutStepTwoTests {
 
     @Test
     public  void verificationOfSuccessfulPurchaseTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
-        productsPage.openPage("https://www.saucedemo.com/cart.html");
-        cartPage.checkOutButtonClick();
-        checkOutPage.fillAllFields("John", "Smith", "34234");
-        checkOutPage.clickContinueButton();
-        checkOutStepTwoPage.clickOnFinishButton();
+        loginPage.openPage()
+                 .login("standard_user", "secret_sauce")
+                 .addProductToCart("Sauce Labs Bolt T-Shirt");
+        cartPage.openCardPage()
+                 .checkOutButtonClick()
+                 .fillAllFields("John", "Smith", "34234")
+                 .clickContinueButton()
+                 .clickOnFinishButton();
         Assert.assertEquals(checkOutCompletePage.getCheckOutCompleteInformation(), "CHECKOUT: COMPLETE!");
     }
 
     @Test
     public  void backToProductPageAfterSuccessfulPurchaseTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
-        productsPage.openPage("https://www.saucedemo.com/cart.html");
-        cartPage.checkOutButtonClick();
-        checkOutPage.fillAllFields("John", "Smith", "34234");
-        checkOutPage.clickContinueButton();
-        checkOutStepTwoPage.clickOnFinishButton();
-        checkOutCompletePage.backHomeButtonClick();
-        Assert.assertEquals(productsPage.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+        loginPage.openPage()
+                 .login("standard_user", "secret_sauce")
+                 .addProductToCart("Sauce Labs Bolt T-Shirt");
+        cartPage.openCardPage()
+                 .checkOutButtonClick()
+                 .fillAllFields("John", "Smith", "34234")
+                 .clickContinueButton()
+                 .clickOnFinishButton()
+                 .backHomeButtonClick();
+        Assert.assertEquals(productsPage.getUrl(), "https://www.saucedemo.com/inventory.html");
     }
 }
 

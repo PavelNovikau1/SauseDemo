@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HeaderPage extends BasePage{
+
     public HeaderPage(WebDriver driver) {
         super(driver);
     }
@@ -11,8 +12,14 @@ public class HeaderPage extends BasePage{
     private static final By LOG_OUT = By.xpath("//*[@id='logout_sidebar_link']");
     private static final By POP_UP_MENU_ITEMS = By.xpath("//*[@class='bm-menu-wrap']");
 
-    public void openPopUpMenu(){
+    public void waitForPageOpened() {
+        waitForElementLocated(POP_UP_MENU_ITEMS, 10);
+    }
+
+    public HeaderPage openPopUpMenu(){
+        waitForPageOpened();
         driver.findElement(OPEN_POP_UP_MENU).click();
+        return this;
     }
 
     public boolean isPopUpMenuDisplayed(){
