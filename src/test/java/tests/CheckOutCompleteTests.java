@@ -8,7 +8,7 @@ public class CheckOutCompleteTests extends CheckOutStepTwoTests {
     @Test
     public  void verificationOfSuccessfulPurchaseTest() {
         loginPage.openPage()
-                 .login("standard_user", "secret_sauce")
+                 .login(System.getProperty("username"), System.getProperty("password"))
                  .addProductToCart("Sauce Labs Bolt T-Shirt");
         cartPage.openCardPage()
                  .checkOutButtonClick()

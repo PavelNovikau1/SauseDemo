@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CartTests extends BaseTest {
 
     @Test
+    @Description("Add product to card")
     public void addProductToCartTest() {
         loginPage.openPage()
                  .login("standard_user", "secret_sauce")

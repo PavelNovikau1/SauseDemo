@@ -19,6 +19,7 @@ public class BaseTest {
     CheckOutStepTwoPage checkOutStepTwoPage;
     CheckOutCompletePage checkOutCompletePage;
     LoginPageFactory loginPageFactory;
+
     @BeforeMethod
     public void initTest() {
         WebDriverManager.chromedriver().setup();

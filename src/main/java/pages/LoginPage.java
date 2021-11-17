@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +16,7 @@ public class LoginPage extends BasePage{
     private static final By INCORRECT_LOGIN_BUTTON_MESSAGE = By.xpath("//*[@data-test='error']");
     private static final By BOT_LOGO = By.xpath("//*[@class='bot_column']");
 
+    @Step("Login as '{username}' with '{password}'")
     public ProductsPage login(String username, String password) {
         waitForElementLocated(USERNAME_INPUT, 10);
         driver.findElement(USERNAME_INPUT).sendKeys(username);
@@ -30,6 +32,7 @@ public class LoginPage extends BasePage{
     public void waitForPageOpened() {
         waitForElementLocated(BOT_LOGO, 10);
     }
+
 
     public LoginPage openPage() {
         openPage(BASE_URL);
