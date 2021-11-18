@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CheckOutTests extends HeaderTests {
 
     @Test
+    @Description(value = "Filling information fields with valid data test")
     public void fillingInformationFieldsWithValidValuesTest() {
         loginPage.openPage()
                  .login("standard_user", "secret_sauce")
