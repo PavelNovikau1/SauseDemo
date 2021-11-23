@@ -1,5 +1,7 @@
 package pages;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +21,8 @@ public class LoginPageFactory extends BasePage {
     @FindBy(xpath = "//*[@class='bot_column']")
     WebElement botLogo;
 
+    @Step("Login as '{username}' with '{password}'")
+    @Description(value = "Login with valid data")
     public ProductsPage login(String username, String password) {
         waitForElementLocated(userNameInput, 10);
         userNameInput.sendKeys(username);

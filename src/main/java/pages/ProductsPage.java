@@ -1,5 +1,7 @@
 package pages;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,6 +18,8 @@ public class ProductsPage extends HeaderPage {
         waitForElementLocated(PRODUCT_IMAGE, 10);
     }
 
+    @Step("Add product to card: '{ADD_PRODUCT_TO_CART_BUTTON}'")
+    @Description(value = "Add product from product page to card")
     public ProductsPage addProductToCart(String productName) {
         waitForPageOpened();
         driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))).click();

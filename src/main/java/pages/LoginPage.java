@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class LoginPage extends BasePage{
     private static final By BOT_LOGO = By.xpath("//*[@class='bot_column']");
 
     @Step("Login as '{username}' with '{password}'")
+    @Description(value = "Login with valid data")
     public ProductsPage login(String username, String password) {
         waitForElementLocated(USERNAME_INPUT, 10);
         driver.findElement(USERNAME_INPUT).sendKeys(username);
@@ -24,7 +26,9 @@ public class LoginPage extends BasePage{
         driver.findElement(LOGIN_BUTTON).click();
         return new ProductsPage(driver);
     }
-
+    @Step("Get incorrect login message")
+    @Description(value = "Get incorrect login error message" +
+            "after entering invalid data")
     public String getIncorrectLoginErrorMessageText(){
       return  driver.findElement(INCORRECT_LOGIN_BUTTON_MESSAGE).getText();
     }
@@ -32,7 +36,6 @@ public class LoginPage extends BasePage{
     public void waitForPageOpened() {
         waitForElementLocated(BOT_LOGO, 10);
     }
-
 
     public LoginPage openPage() {
         openPage(BASE_URL);
