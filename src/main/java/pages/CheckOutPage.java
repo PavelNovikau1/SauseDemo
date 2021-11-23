@@ -22,7 +22,7 @@ public class CheckOutPage extends HeaderPage {
         return new CheckOutStepTwoPage(driver);
     }
 
-    @Step("Filling fields: {'firstName'},{'lastName'},{'lastName'}")
+    @Step("Filling fields: FirstName: {'firstName'},LastName: {'lastName'},ZipCode: {'zipPostalCode'}")
     @Description(value = "Filling postage fields with valid data")
     public CheckOutPage fillAllFields(String firstName, String lastName, String zipPostalCode) {
         driver.findElement(FIRST_NAME_FIELD).sendKeys(firstName);

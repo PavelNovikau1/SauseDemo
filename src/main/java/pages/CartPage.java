@@ -19,13 +19,13 @@ public class CartPage extends HeaderPage {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 
-    @Step("Click to the button: {'CHECK_OUT_BUTTON'}")
+    @Step("Click to the button: CHECK_OUT_BUTTON")
     @Description(value = "Click to the button and go to check out page")
     public  CheckOutPage checkOutButtonClick() {
         driver.findElement(CHECK_OUT_BUTTON).click();
         return new CheckOutPage(driver);
     }
-    @Step("Open URL: {url}")
+
     @Description(value ="Opening cart page")
     public CartPage openCardPage() {
         openPage(BASE_URL + CART_URL);

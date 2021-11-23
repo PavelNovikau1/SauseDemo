@@ -19,7 +19,7 @@ public class CheckOutCompletePage extends CheckOutStepTwoPage {
         return driver.findElement(COMPLETE_ALERT_OF_SUCCESS_ORDER).getText();
     }
 
-    @Step("Click to the button: {'BACK_HOME_BUTTON'}")
+    @Step("Click to the button: BACK_HOME_BUTTON")
     @Description(value = "Click to the back home button button to return on main page")
     public void backHomeButtonClick() {
         driver.findElement(BACK_HOME_BUTTON).click();

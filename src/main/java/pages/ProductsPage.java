@@ -18,7 +18,7 @@ public class ProductsPage extends HeaderPage {
         waitForElementLocated(PRODUCT_IMAGE, 10);
     }
 
-    @Step("Add product to card")
+    @Step("Add product to card: '{ADD_PRODUCT_TO_CART_BUTTON}'")
     @Description(value = "Add product from product page to card")
     public ProductsPage addProductToCart(String productName) {
         waitForPageOpened();

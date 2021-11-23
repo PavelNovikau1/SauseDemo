@@ -12,7 +12,7 @@ public class CheckOutStepTwoPage extends CheckOutPage{
 
     private static final By FINISH_BUTTON = By.xpath("//*[@id='finish']");
 
-    @Step("Click to the button: {'FINISH_BUTTON'}")
+    @Step("Click to the button: FINISH_BUTTON")
     @Description(value = "Click to the button and go to the check out complete page")
     public CheckOutCompletePage clickOnFinishButton(){
         driver.findElement(FINISH_BUTTON).click();
