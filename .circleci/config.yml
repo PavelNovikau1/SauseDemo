@@ -22,10 +22,9 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
-      # run tests!
       - run:
           name: Running tests
-          command: mvn clean install
+          command: mvn clean -Dbrowser=chrome install
       - run:
           name: Generate allure report
           command: mvn allure:report
@@ -47,6 +46,6 @@ workflows:
           filters:
             branches:
               only:
-              - master
+                - master
     jobs:
       - ui-tests
