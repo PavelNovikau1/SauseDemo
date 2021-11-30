@@ -2,6 +2,7 @@ package pages;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+@Log4j2
 public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
@@ -24,6 +26,7 @@ public class BasePage {
     @Step("Opening URL: '{url}'")
     @Description(value = "Open base URL https://www.saucedemo.com/")
     public void openPage(String url) {
+        log.info("Open url");
         driver.get(url);
     }
 

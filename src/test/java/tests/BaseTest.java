@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -9,6 +10,7 @@ import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
@@ -22,8 +24,12 @@ public class BaseTest {
 
     @BeforeMethod
     public void initTest() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        try {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+        }catch (Exception e) {
+            log.fatal("Error: balbalbla");
+        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(200, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
